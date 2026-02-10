@@ -1,4 +1,4 @@
-// Gabriel A Rosado , Class: COP3514.002S26
+// Class: COP3514.002S26
 
 // Descprtion Of Code: Project 2, To create a code that reads characters using getchar() and to classified them by their ASCII value.
 // As well to convert lower case to upper case and upper to lower while using a do while loop , with another loop within it.
