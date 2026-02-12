@@ -1,7 +1,7 @@
 // Name: Gabriel A Rosado Class: COP3514.002S26
 
-// The program calc the rental cost of an AC unit based its type and 
-// number for days its purchase for. We put the price info in an array 
+// The program calc the rental cost of an AC unit based on it type and --
+// number for days its purchase for. We put the price info in an arrays
 // These arrays are taken to charge firstday cost , daily rate and put
 // a weekly cost cap to get the total cost for that AC unit.
 
@@ -38,29 +38,29 @@ int main(void){
 		return EXIT_SUCCESS;
 
 }
-// Take user input of AC type selected and make it  in the ranage 0-3 for array index
- int index = selection - 1;
+// Take user input of AC type selected and make it start at range 0 for array index
+ int ac_index = selection - 1;
 
     if (days == 0){ // no charge if no amount of days selected
         charge = 0;
     }
     else if (days < 7){  // 1 to 7 day charge //
-        charge = firstDay[index] + (days - 1) * dailyRate[index]; // first day + remaining days before week cap 
+        charge = firstDay[ac_index] + (days - 1) * dailyRate[ac_index]; // first day + remaining days before week cap 
 
-        if (charge > perWeekMax[index]){ // if charge is more than per week max cost within the 7 days put the cap //
-            charge = perWeekMax[index];
+        if (charge > perWeekMax[ac_index]){ //if charge is more than per week max cost within the 7 days put the cap //
+            charge = perWeekMax[ac_index];
         }
     }
     else { // if days over 7 days charge per weekmax each week plus remanding days //
-        charge = (days / 7) * perWeekMax[index];
+        charge = (days / 7) * perWeekMax[ac_index];
 
         int remainderDays = days % 7;
 
         if (remainderDays > 0){
-            int priceBeforeCap = firstDay[index] + (remainderDays - 1) * dailyRate[index]; // cost of remainder days 
+            int priceBeforeCap = firstDay[ac_index] + (remainderDays - 1) * dailyRate[ac_index]; // cost of remainder days 
 
-            if (priceBeforeCap > perWeekMax[index]){
-                priceBeforeCap = perWeekMax[index];
+            if (priceBeforeCap > perWeekMax[ac_index]){
+                priceBeforeCap = perWeekMax[ac_index];
             }
 
             charge += priceBeforeCap; // Add remainder cost to total 
