@@ -1,3 +1,11 @@
+// Name: Gabriel A Rosado Class: COP3514.002S26
+
+// The program calc the rental cost of an AC unit based its type and 
+// number for days its purchase for. We put the price info in an array 
+// These arrays are taken to charge firstday cost , daily rate and put
+// a weekly cost cap to get the total cost for that AC unit.
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -6,8 +14,8 @@ int main(void){
 	int selection;
 	int days;
 	int charge = 0;
-
-	int firstDay[4] = {50, 60, 80, 200};
+	// Arrays added to store the price for each type of AC
+	int firstDay[4] = {50, 30, 80, 200};
 	int dailyRate[4] = {60, 35, 50, 120};
 	int perWeekMax[4] = {160, 200, 280, 550};
 	
@@ -30,35 +38,34 @@ int main(void){
 		return EXIT_SUCCESS;
 
 }
-	// Selection price for each AC type
-	if (selection == 1){
-		firstDay = 50; dailyRate = 30; perWeekMax = 160;
-}	else if (selection == 2){
-		firstDay = 60; dailyRate= 35; perWeekMax = 200;
-}	else if (selection == 3){
-		firstDay = 80; dailyRate = 50; perWeekMax = 280;
-}	else if (selection == 4){
-		firstDay = 200; dailyRate = 120; perWeekMax  = 550;
-}	
-	// Calc the Price that is charge base on number of days users wants the AC for
-	if (days == 0){
-		charge = 0;
-}	else if (days < 7){ // 1 to 7 day charge //
-		charge = firstDay + (days - 1) * dailyRate;
-		if (charge > perWeekMax){
-			charge = perWeekMax; // if charge is more than per week max cost within the 7 days put the cap //
-}
-}	else {
-		charge = (days/7) * perWeekMax; // if days over 7 days charge per weekmax each week plus remanding days //
-		int remainderDays = days % 7;
-		if (remainderDays > 0) {
-			int pricebeforecap = remainderDays * dailyRate;
-			if (pricebeforecap > perWeekMax){
-				pricebeforecap = perWeekMax;
-			}
-			charge += pricebeforecap;
-}
-}
+// Take user input of AC type selected and make it  in the ranage 0-3 for array index
+ int index = selection - 1;
+
+    if (days == 0){ // no charge if no amount of days selected
+        charge = 0;
+    }
+    else if (days < 7){  // 1 to 7 day charge //
+        charge = firstDay[index] + (days - 1) * dailyRate[index]; // first day + remaining days before week cap 
+
+        if (charge > perWeekMax[index]){ // if charge is more than per week max cost within the 7 days put the cap //
+            charge = perWeekMax[index];
+        }
+    }
+    else { // if days over 7 days charge per weekmax each week plus remanding days //
+        charge = (days / 7) * perWeekMax[index];
+
+        int remainderDays = days % 7;
+
+        if (remainderDays > 0){
+            int priceBeforeCap = firstDay[index] + (remainderDays - 1) * dailyRate[index]; // cost of remainder days 
+
+            if (priceBeforeCap > perWeekMax[index]){
+                priceBeforeCap = perWeekMax[index];
+            }
+
+            charge += priceBeforeCap; // Add remainder cost to total 
+        }
+    }
 	printf("Charge($): %d\n", charge);
 
 	return EXIT_SUCCESS;
