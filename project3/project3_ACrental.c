@@ -1,4 +1,3 @@
-
 // Class: COP3514.002S26 
 
 // The program calc the rental cost of an AC unit based on it type and -- 
