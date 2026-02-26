@@ -60,7 +60,7 @@ int main(void){
 
     int n1, n2;
     // Ask user for size of first array
-    printf("Enter length of the first array: ");
+    printf("Enter the length of the first array: ");
     scanf("%d", &n1);
     // Declare first array
     int a[n1];
@@ -70,7 +70,7 @@ int main(void){
     scanf("%d", &a[i]);
     
     // Ask user for size of second array
-    printf("Enter length of the second array: ");
+    printf("Enter the length of the second array: ");
     scanf("%d", &n2);
     // Declare second array
     int b[n2];
