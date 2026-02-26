@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// This program reads an array from the user and creates a new array 
+// This new array is where each element is the sum of the first and last element of the input
+// If the array is an odd number it copies the middle element and puts it in the output array
+
 void compute(int *a1, int n1, int *a2, int n2){
 
     int *beginning = a1; // pointer for first element in array a1
