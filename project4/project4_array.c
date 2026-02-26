@@ -6,13 +6,13 @@
 
 int find_elements(int *a, int n1, int *b, int n2, int *c){
  // Stored memory address  
-    int *pa = a; // Pointer first array 
-    int *pb = b; // Pointer second array
-    int *pc = c; // Pointer to move through third array , combination of first & second
+    int *pa = a; // Pointer first array a
+    int *pb = b; // Pointer second array b
+    int *pc = c; // Pointer to move through third array , combination of first & second c
     
     int *end; // Pointer as stop boundary
     int duplicate; // alert (true or false) if a duplicate is found
-    int totalcount = 0; // counst how many elements are stored
+    int totalcount = 0; // counts how many elements are stored
     
     end = a + n1; // end boundary at the last element of array a  
     while (pa < end){ // loop till last element of array a
