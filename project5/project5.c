@@ -1,3 +1,9 @@
+// Name: Gabriel A Rosado Class: COP3514.002S26 
+
+// This program replaces all occurrence of a word in a sentence
+// with another word of equal lenght using pointer.
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
